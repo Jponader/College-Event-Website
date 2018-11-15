@@ -175,7 +175,7 @@
 	                $date = DateTime::createFromFormat('U', $row['event_time'], $timezone);
 	                $date = $date->format('m-d-y h:i a');
 	                
-	                $length = $row['event_time'] / 60;
+	                $length = $row['event_length'] / 60;
 	                $lonLat = explode(" ", $row['address']);
 
 	                if(count($lonLat) == 2){
@@ -188,12 +188,12 @@
 	                    $flag = 1;
 	                }
 	                    
-	                  echo "<tr>
+	                  echo "<tr onClick=\"location.href='viewEvent.php?event=$row[id]';\">
 	                          <td>$row[name]</td>
 	                          <td>$row[category]</td>
 	                          <td>$row[description]</td>
 	                          <td>$date</td>
-	                          <td>Length Variable to be Re-added $length also need to fix event entry hours</td>
+	                          <td>$length</td>
 	                          ";
 
 
